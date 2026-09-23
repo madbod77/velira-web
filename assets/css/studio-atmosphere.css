@@ -1,0 +1,104 @@
+/* Poster atmosphere: magenta upper-right, violet diagonal, cobalt lower-right.
+   One shared light surface; stationary SVG grain stays independent of its motion. */
+html { background: #190823; }
+body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl) {
+  position: relative;
+  isolation: isolate;
+  background: #190823;
+  --muted: #eee5f5;
+  --line: rgba(245,242,247,.28);
+}
+body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl)::before,
+body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl)::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  top: 0; left: 0; width: 100%; height: 100vh; height: 100lvh;
+}
+body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl)::before {
+  z-index: -2;
+  background:
+    radial-gradient(ellipse 28% 43% at 80% 16%, #9200db 0%, #7200bb99 35%, transparent 78%),
+    linear-gradient(132deg, transparent 23%, #67008380 35%, #9200ce80 43%, transparent 57%),
+    radial-gradient(ellipse 25% 70% at 55% 86%, #4900ff 0%, #4400eea6 35%, transparent 76%),
+    radial-gradient(ellipse 52% 70% at 98% 98%, #2e54bf 0%, #304fbca6 48%, transparent 83%),
+    radial-gradient(ellipse 52% 44% at 0% 95%, #690073 0%, transparent 83%),
+    linear-gradient(145deg, #300d3d 0%, #16051f 38%, #1d0a36 75%, #202c66 100%);
+  transform: scale(1.06);
+  animation: poster-light-drift 26s ease-in-out infinite;
+}
+body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl)::after {
+  z-index: -1;
+  background: url('../img/studio-grain.svg') repeat;
+  background-size: 180px 180px;
+  mix-blend-mode: soft-light;
+  opacity: .62;
+}
+@keyframes poster-light-drift {
+  0%,100% { transform: scale(1.06) translate3d(-.7%,.6%,0); }
+  50% { transform: scale(1.09) translate3d(.7%,-.6%,0); }
+}
+/* Open the section surfaces to the continuous poster lighting. */
+.light-field { display: none; }
+.studio-home :is(.studio-hero,.studio-value,.vl-works,.studio-solutions,.studio-price,.vl-process,.vl-contact,.vl-footer),
+.studio-websites :is(.vw-hero,.vw-clarity,.vw-process,.vw-work,.vw-pricing,.vw-faq,.vw-order,.vl-footer),
+.vla-page :is(.vla-hero,.vla-showcase,.vla-method,.vla-cta,.vl-footer),
+.legal-page .legal-footer { background: transparent; }
+.vl-contact::before,.vw-order::before { display: none; }
+.vw-marquee,.vw-payment { background: rgba(31,10,54,.42); }
+/* Keep interactive demos and documents grounded in the same hue. */
+.sx-stage {
+  background: radial-gradient(ellipse at 95% 15%,#8a00ce80,transparent 72%),
+    radial-gradient(ellipse at 10% 100%,#345ed080,transparent 76%),rgba(28,8,49,.87);
+}
+.sx-tab[aria-selected=true] { background: linear-gradient(110deg,#572280cc,#281445df); }
+.sx-tab:hover { background-color: #502074; }
+.vw-plans article { background: rgba(29,10,49,.62); }
+.vw-plans article.is-featured { background: rgba(66,18,99,.9); }
+.vw-plans article:not(.is-featured):hover { background: #32164f; }
+.vw-plans article.is-featured:hover { background: #4e1c73; }
+.vla-page .vl-nav,.vla-page .vl-nav.is-scrolled { background: transparent; }
+.legal-header,.fl-top { background: rgba(31,10,47,.95); }
+.fl-side { background: rgba(30,11,48,.64); }
+.fl-card,.fl-kpi { background: rgba(29,12,48,.91); }
+.fl-canvas { background-color: rgba(29,12,48,.62); }
+.legal-page .legal { background: rgba(26,9,42,.70); box-shadow: 0 0 90px 40px rgba(26,9,42,.70); }
+/* Fine labels retain contrast over the stronger light. */
+.vl-nav__links a,.vl-lang button,.studio-locale button { color: #e4daee; }
+.studio-title .line-mask:last-child,.light-word { color: #eedfff; }
+.hero-description { color: #eee5f5; }
+.hero-caption { color: #e5dced; }
+.sx-system { --sx-muted: #eee5f5; --sx-line: rgba(245,242,247,.28); }
+.sx-rail-caption,.sx-panel-kicker,.sx-outcome-label,.sx-tab-num { color: #e9d9f7; }
+.sx-heading-accent { color: #e4cafa; }
+.absence-list li>span:last-child,.sx-outcome>span:last-child,
+.hero-caption a,.sx-footer .sx-detail-link,.vl-footer__bottom { color: #f5f2f7; }
+.vl-form label,.vl-form label>span,.vl-form__privacy-note,.vl-form__consent b { color: #f0e8f8; }
+.vl-form input::placeholder,.vl-form textarea::placeholder { color: #f0e8f8; }
+.vl-form input:not([type=checkbox]),.vl-form textarea,.vl-form select { border-bottom-color: #d3bfdf; }
+.vl-text-link:hover,.sx-detail-link:hover { color: #fff; border-color: #fff; }
+.vl-lang>span { color: #f5f2f7; }
+@media (max-width:932px) {
+  .vl-nav.is-open .vl-nav__panel,.vla-page .vl-nav__panel { background: #2c1045; }
+}
+@media (max-width:767px) {
+  body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl)::before {
+    animation: none;
+    transform: none;
+  }
+  body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl)::after {
+    background-size: 160px 160px;
+    opacity: .52;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl)::before {
+    animation: none;
+    transform: none;
+  }
+}
+@media print {
+  body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl)::before,
+  body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl)::after { display: none; }
+  .legal-page,.legal-page .legal { background: white; box-shadow: none; }
+}
