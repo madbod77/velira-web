@@ -35,10 +35,12 @@ body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl):
 }
 body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl)::after {
   z-index: -1;
-  background: url('../img/studio-grain.svg') repeat;
+  /* Transparent relief contains its own highlights/shadows. Avoid a fixed
+     mix-blend-mode layer: Chromium may drop content tiles after back-scrolling. */
+  background: url('../img/studio-relief.svg') repeat;
   background-size: 180px 180px;
-  mix-blend-mode: soft-light;
-  opacity: .62;
+  mix-blend-mode: normal;
+  opacity: .72;
 }
 @keyframes poster-light-drift {
   0%,100% { transform: scale(1.06) translate3d(-.7%,.6%,0); }
@@ -95,7 +97,7 @@ body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl):
   }
   body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl)::after {
     background-size: 160px 160px;
-    opacity: .52;
+    opacity: .62;
   }
 }
 @media (prefers-reduced-motion:reduce) {
