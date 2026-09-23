@@ -78,6 +78,7 @@ body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl):
 .vl-form input:not([type=checkbox]),.vl-form textarea,.vl-form select { border-bottom-color: #d3bfdf; }
 .vl-text-link:hover,.sx-detail-link:hover { color: #fff; border-color: #fff; }
 .vl-lang>span { color: #f5f2f7; }
+.studio-websites .vw-process .vw-kicker { color: #eee5f5; }
 @media (max-width:932px) {
   .vl-nav.is-open .vl-nav__panel,.vla-page .vl-nav__panel { background: #2c1045; }
 }
