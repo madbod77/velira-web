@@ -8,6 +8,12 @@ body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl) 
   --muted: #eee5f5;
   --line: rgba(245,242,247,.28);
 }
+/* A content stacking context keeps composited reveal elements above the fixed
+   light/grain layers, including after their entrance transforms finish. */
+body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl) > :is(main,footer) {
+  position: relative;
+  z-index: 0;
+}
 body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl)::before,
 body:is(.studio-home,.studio-websites,.vla-page,.vl-offer-body,.legal-page,.fl)::after {
   content: "";
