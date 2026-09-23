@@ -55,6 +55,7 @@
  .vc-chapter { grid-template-columns:22px minmax(0,1fr); column-gap:16px; row-gap:14px; padding:28px 0 34px; }
  .vc-number { padding-top:13px; font-size:10px; }
  .vc-word { font-size:clamp(54px,17vw,100px); }
+ html[lang="en"] .vc-chapter--1 .vc-word { font-size:clamp(50px,16vw,96px); }
  .vc-chapter--2 .vc-word { font-size:clamp(28px,8.7vw,52px); padding-block:9px; }
  .vc-copy { grid-column:2; }
  .vc-subtitle { font-size:16px; margin-bottom:10px; }
