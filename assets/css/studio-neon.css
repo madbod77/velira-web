@@ -1,0 +1,66 @@
+/* Neon typography: a crisp light core with a restrained, static colour halo.
+   Scoped to editorial headings so UI labels and long copy stay easy to read. */
+body:is(.studio-home, .studio-websites, .vla-page, .vl-offer-body) {
+  --neon-core: #fff1fc;
+  --neon-glow: 0 0 2px #fff4fc, 0 0 10px #ff79df80,
+    0 0 24px #cc35ff66, 0 0 44px #782bff38;
+  --neon-pink: 0 0 2px #fff0fa, 0 0 9px #ff70daaa,
+    0 0 24px #f12be480, 0 0 48px #bd1bff52;
+  --neon-blue: 0 0 2px #f1f3ff, 0 0 10px #94b1ffaa,
+    0 0 25px #637dff80, 0 0 48px #553bff52;
+}
+
+body:is(.studio-home, .studio-websites, .vla-page, .vl-offer-body) :is(h1, h2, .vc-word) {
+  color: var(--neon-core);
+  text-shadow: var(--neon-glow);
+}
+
+/* Existing coloured spans and reveal masks inherit the same light treatment. */
+body:is(.studio-home, .studio-websites, .vla-page, .vl-offer-body) :is(h1, h2) :is(span, b, em) {
+  color: inherit;
+  text-shadow: inherit;
+}
+
+body:is(.studio-home, .studio-websites, .vla-page, .vl-offer-body) :is(h1, h2) :is(.light-word, .sx-heading-accent, .vc-accent, .is-red),
+.studio-home .studio-title > .line-mask:last-child,
+.studio-websites .vw-hero h1 > .line-mask:nth-child(2),
+.studio-websites .vc-chapter--2 .vc-word {
+  color: #ffe0f7;
+  text-shadow: var(--neon-pink);
+}
+
+.studio-websites h2 :is(.vw-outline, .vw-shadow),
+.studio-websites .vw-hero h1 > .line-mask:last-child,
+.studio-websites .vc-chapter--3 .vc-word,
+.studio-home .vl-contact__copy h2 > span:last-child {
+  color: #e6edff;
+  text-shadow: var(--neon-blue);
+}
+
+/* Cast a little light beyond the reveal mask without changing its overflow:
+   inline-block hero masks depend on overflow:hidden for their baseline. */
+:is(.studio-home, .studio-websites) .line-mask,
+.studio-websites .vc-title-mask {
+  filter: drop-shadow(0 0 8px #b33aff33);
+}
+
+@media (max-width: 767px) {
+  body:is(.studio-home, .studio-websites, .vla-page, .vl-offer-body) {
+    --neon-glow: 0 0 1px #fff4fc, 0 0 7px #ff79df70, 0 0 18px #a02fff52;
+    --neon-pink: 0 0 1px #fff0fa, 0 0 7px #ff70da99, 0 0 20px #ed32e766;
+    --neon-blue: 0 0 1px #f1f3ff, 0 0 7px #94b1ff99, 0 0 20px #637dff66;
+  }
+}
+
+/* Glow is static, including reduced motion; print and forced colours stay plain. */
+@media print, (forced-colors: active) {
+  :is(.studio-home, .studio-websites) .line-mask,
+  .studio-websites .vc-title-mask {
+    filter: none;
+  }
+  body:is(.studio-home, .studio-websites, .vla-page, .vl-offer-body) :is(h1, h2, .vc-word),
+  body:is(.studio-home, .studio-websites, .vla-page, .vl-offer-body) :is(h1, h2) :is(span, b, em) {
+    color: CanvasText;
+    text-shadow: none;
+  }
+}
