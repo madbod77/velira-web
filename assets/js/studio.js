@@ -41,9 +41,3 @@
  };
  buttons.forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.priceMode;render();}));document.addEventListener('velira:languagechange',render);render();
 })();
-(() => {
- const dialog=document.querySelector('.studio-gallery');if(!dialog)return;let trigger=null;dialog.addEventListener('close',()=>trigger?.focus({preventScroll:true}));
- document.querySelectorAll('[data-gallery]').forEach(button=>button.addEventListener('click',()=>{trigger=button;const img=button.querySelector('img');dialog.querySelector('img').src=img.src;dialog.querySelector('img').alt=img.alt;dialog.querySelector('#gallery-title').textContent=button.querySelector('.vw-project__meta b').textContent;dialog.showModal();}));
- dialog.querySelector('[data-gallery-close]').addEventListener('click',()=>dialog.close());
- dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
-})();

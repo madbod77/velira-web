@@ -111,6 +111,19 @@ h2{font-weight:550;letter-spacing:-.045em;line-height:1.08}.value-content h2{fon
 button.vw-project{font:inherit;text-align:left;color:var(--white);border:0;background:transparent;cursor:zoom-in;padding:0}.vw-project__meta>div{display:flex;flex-direction:column;gap:7px}.studio-gallery{width:min(1100px,calc(100% - 32px));max-height:92dvh;padding:0;background:#100a17;color:var(--white);border:1px solid var(--line);overflow:auto}.studio-gallery::backdrop{background:#050307ed}.gallery-bar{display:flex;align-items:center;justify-content:space-between;padding:8px 18px;border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.08em}.gallery-bar button{background:none;color:var(--white);border:0;font-size:28px;width:44px;height:44px;cursor:pointer}.studio-gallery img{display:block;width:100%;height:auto}.vw-clarity-machine__foot b{color:#d9c9e8}
 @media(max-width:932px){.no-js .vl-nav{position:relative;inset:auto;display:flex;flex-wrap:wrap;width:auto;height:auto;min-height:0;margin:20px;padding:0 0 20px;gap:18px}.no-js .vl-nav__panel{display:flex!important;position:static;flex-direction:column;align-items:start;justify-content:start;gap:14px;flex:1 0 100%;width:100%;padding:0;margin:0;visibility:visible;opacity:1;transform:none;clip-path:none;max-height:none}.no-js .vl-nav__links{display:flex!important;flex-direction:row;flex-wrap:wrap;gap:24px;align-items:center;justify-content:start;width:100%}.no-js .vl-nav__links a{padding:8px 0;font-size:12px}.no-js .vl-nav__panel .vl-lang{display:none}.no-js .vl-nav__panel .vl-button--nav{display:flex;width:auto;min-width:200px;opacity:1;visibility:visible}.no-js .hero-main{padding-top:0}}
 
+/* Text-only website introduction after removing the example gallery. */
+.studio-websites .vw-hero{min-height:0}
+.studio-websites .vw-hero__lede{grid-column:1/-1;max-width:none;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:center}
+.studio-websites .vw-hero__lede p{max-width:650px;margin:0}
+.studio-websites .vw-hero__actions{margin:0}
+@media(max-width:1100px){
+ .studio-websites .vw-hero__lede{grid-template-columns:1fr;gap:28px}
+}
+@media(max-width:767px){
+ .studio-websites .vw-hero__lede{display:block}
+ .studio-websites .vw-hero__actions{margin-top:25px}
+}
+
 /* Contact section labels retain contrast after the source light theme. */
 .vl-contact .vl-index,.vw-order .vw-kicker{color:var(--muted)}
 

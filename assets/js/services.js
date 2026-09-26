@@ -12,7 +12,7 @@
   let inView = false;
   const cancelMotion = () => { animations.forEach(a => a.cancel()); animations.clear(); };
   const animate = (el, frames, opts) => {
-    if (reduced.matches || !el.animate) return;
+    if (!el || reduced.matches || !el.animate) return;
     const a = el.animate(frames, { duration: 520, easing: 'cubic-bezier(.22,1,.36,1)', ...opts });
     animations.add(a);
     a.finished.catch(() => {}).finally(() => animations.delete(a));
