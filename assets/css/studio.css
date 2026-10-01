@@ -138,3 +138,9 @@ button.vw-project{font:inherit;text-align:left;color:var(--white);border:0;backg
  .studio-footer-links a,.vl-footer__bottom a{display:inline-flex;align-items:center;min-width:44px;min-height:44px;padding:10px 0;font-size:13px}
  .vl-footer__bottom>div{gap:6px 20px}
 }
+
+/* Font-independent arrows: mobile OS emoji fallback cannot alter the artwork. */
+svg.vl-arrow{display:inline-block;width:1em;height:1em;vertical-align:-.125em;flex:none;pointer-events:none}
+@media(max-width:932px){
+ .vl-nav__links a::before{content:"";display:block;width:1em;height:1em;flex:none;background:currentColor;-webkit-mask:url('../img/arrow-up-right.svg') center/contain no-repeat;mask:url('../img/arrow-up-right.svg') center/contain no-repeat}
+}
